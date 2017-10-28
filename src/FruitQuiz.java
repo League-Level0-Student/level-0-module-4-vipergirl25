@@ -9,13 +9,16 @@ import java.awt.event.KeyEvent;
 import javax.swing.JApplet;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class FruitQuiz extends KeyAdapter {
 
 	void makeQuestions() {
 		question1 = new JLabel(
 				"<html>Which is not a real animal? <br> A: Flubber Monkey <br> B: Pink Fairy Armadillo <br> C: Dumbo Octopus</html>");
-		// 11. Make another question called "question2"
+		//11. Make another question called "question2"
+		question2 = new JLabel(
+				"<html>What is the best television show? <br> A: Keeping Up With the Kardashians <br> B: Battlestar Galactica <br> C: The Real Housewives of New Delhi</html/");
 		
 	}
 
@@ -23,44 +26,74 @@ public class FruitQuiz extends KeyAdapter {
 	public void keyPressed(KeyEvent arg0) {
 		int keyCode = arg0.getKeyCode();
 		// 1. Print out the key code variable
+		System.out.println(keyCode);
 		
 
 		// 2. Make 3 variables that hold the key codes for apple, banana and carrot
-
-		
+		//JOptionPane.showMessageDialog(null, "Press the apple for a, the fork for b ,and the carrot for c.");
+		int Carrot = 37;
+		int Fork = 39;
+		int Apple = 38;
 
 		
 		if (question1.isShowing()) {
 			// 3. If they touched the right fruit, do steps 4 and 7
+			if(keyCode == Apple) {
+				correct();
+				nextQuestion(question2);
+			
 			
 				// 4. Call the correct() method
 				
 				// 7. Use the nextQuestion() method to go to question2
+			}
 			
 			
 			// 8. else (if they touched something else)
+			else if (keyCode == Apple) {
+				incorrect();
+			}
+			
 				
 				// 9. Call the incorrect() method
 			
+				
+			}
+			
 
-		}
+		
 
 		// 12. If question2 is showing,
+		else if(question2.isShowing()) {
+			if(keyCode == Fork) {
+				correct();
+			}
+			else if(keyCode!= Fork) {
+				incorrect();
+			}
 		
 			// 13. check if it is right or wrong like you did for question1
-	}
+		}
+}
 
-	private void correct() {
+	private void correct()  {
 		// 5. Find a sound for when they get a question right, and drag it into
 		// the default package. It must be a .wav file. 
 		// There are lots on freesound.org
 		// 6. Use the playSound method to play your sound
+		playSound("correct.wav");
 
 
-	}
+
+
+
+}
+
+	
 
 	private void incorrect() {
 		// 10. Find a sound for wrong answers and put it in the default package. Use the playSound method to play it.
+		playSound("boo.wav");
 	
 
 	}

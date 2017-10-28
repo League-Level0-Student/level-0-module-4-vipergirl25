@@ -20,14 +20,23 @@ public class DontForgetTheLyrics {
 	
 	public static void main(String[] args) {
 		// 4. Make a pop-up to explain the game.
+		JOptionPane.showMessageDialog(null, "I will play a song for you, and then you have to type in the lyrics to finish it!");
 
 		// 5. Use the playSound method to play your song.
+		playSound("livinonaprayer.wav");
 
 		// 6. Make a pop-up for the player to type their answer.
+		String lyrics = JOptionPane.showInputDialog("What are the next four words to this song?");
 
 		// 7. If they answered correctly, tell them that they were right.
+		if(lyrics.equals("livin on a prayer")) {
+			JOptionPane.showMessageDialog(null, "You're right!");
+		}
 
 		// 8. Otherwise, tell them they are wrong, and give them the answer.
+		else {
+			JOptionPane.showMessageDialog(null, "You're wrong, sorry! The correct answer is livin on a prayer.");
+		}
 
 		// 9. Record another sound and repeat steps 5-8.
 
